@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { FaExternalLinkAlt } from "react-icons/fa";
-import { Tasty_Kitchens, Nxt_Watch, Task_Checklist, Food_Munch } from "../assets/images/index.js"
+import { Tasty_Kitchens, Nxt_Watch, Task_Checklist, Food_Munch, Weather } from "../assets/images/index.js"
 
 function Projects() {
   const [visible,setVisible] = useState(0);
@@ -8,6 +8,19 @@ function Projects() {
   const projects = [
     {
       id: 1,
+      image: Weather,
+      imageAlt: "Weather",
+      name: "Weather",
+      description: "This Weather App which allows users to search for a location, select it, and view real-time weather information. The weather data is fetched dynamically from the OpenWeatherMap API using the OPENWEATHER_API_KEY",
+      links: {
+        hosted: "https://karthikpeketi.github.io/weatherApp/"
+      },
+      tags: [
+        "HTML5", "CSS3", "JavaScript", "React JS",
+      ]
+    },
+    {
+      id: 2,
       image: Tasty_Kitchens,
       imageAlt: "Tasty Kitchens",
       name: "Tasty Kitchens",
@@ -23,7 +36,7 @@ function Projects() {
       ]
     },
     {
-      id: 2,
+      id: 3,
       image: Food_Munch,
       imageAlt: "Food Munch",
       name: "Food Munch",
@@ -36,7 +49,7 @@ function Projects() {
       ]
     },
     {
-      id: 3,
+      id: 4,
       image: Nxt_Watch,
       imageAlt: "Nxt Watch App",
       name: "Nxt Watch App",
@@ -52,7 +65,7 @@ function Projects() {
       ]
     },
     {
-      id: 4,
+      id: 5,
       image: Task_Checklist,
       imageAlt: "Task Checklist App",
       name: "Task Checklist App",
@@ -96,7 +109,7 @@ function Projects() {
         {projects.map(cards => {
           return (
             <div className="max-md:w-[49%] w-[49%] max-sm:w-full h-full rounded overflow-hidden shadow-lg hover:shadow-indigo-500 border border-white relative" key={cards.id} onMouseOver={() => handleHover(cards.id)} onMouseLeave={() => setVisible(0)}>
-              <img className="w-full h-full object-contain" src={cards.image} alt={cards.imageAlt} />
+              <img className="w-full h-full object-contain" src={cards?.image} alt={cards?.imageAlt} />
               <div className={`${visible === cards.id || !isLargeScreen ? 'absolute flex-col flex justify-end bg-black bg-opacity-45 inset-0 bg-gradient-to-t from-black via-transparent' : 'hidden'} max-md:from-transparent max-md:static max-md:bg-white w-full`}>
               <div className="px-4">
                 <div className="flex items-center gap-5">

@@ -7,9 +7,9 @@ import {
   React_Logo,
   Git_Logo,
   Github_Logo,
-  Tailwind_Logo,
-  Sqlite_Logo,
-  Java_Logo
+  Springboot_Logo,
+  Java_Logo,
+  Mssql_Logo
 } from "../assets/images/index";
 
 function Skills() {
@@ -25,7 +25,7 @@ function Skills() {
         { src: JavaScript_Logo, alt: "JavaScript" },
         { src: HTML_Logo, alt: "HTML5" },
         { src: CSS_Logo, alt: "CSS3" },
-        { src: Sqlite_Logo, alt: "SQL" },
+        { src: Mssql_Logo, alt: "SQL" },
         { src: Java_Logo, alt: "Java" }
       ],
     },
@@ -34,7 +34,7 @@ function Skills() {
       items: [
         { src: React_Logo, alt: "React" },
         { src: Bootstrap_Logo, alt: "Bootstrap" },
-        { src: Tailwind_Logo, alt: "Tailwind" },
+        { src: Springboot_Logo, alt: "Spring Boot" },
       ],
     },
     {

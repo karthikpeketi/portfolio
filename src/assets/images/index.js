@@ -13,8 +13,10 @@ import Task_Checklist from "./task-checklist-app.png";
 import Js_Projects from "./js-projects.png";
 import Food_Munch from "./food-munch-app.png";
 import Tailwind_Logo from "./tailwind-logo.svg";
-import Sqlite_Logo from "./sqlite-logo.svg";
 import Java_Logo from "./java-logo.svg";
+import Springboot_Logo from './springboot-logo.svg';
+import Mssql_Logo from './mssql-logo.svg';
+import Weather from './weather.png';
 
 // Certificates
 import Design_Certificate from "./react-certificate.jpg";
@@ -38,6 +40,8 @@ export {
   Food_Munch,
   Design_Certificate,
   SQL_Certificate,
-  Sqlite_Logo,
-  Java_Logo
+  Java_Logo,
+  Springboot_Logo,
+  Mssql_Logo,
+  Weather
 };

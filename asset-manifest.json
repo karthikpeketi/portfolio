@@ -1,18 +1,19 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.9e0d865b.css",
-    "main.js": "/portfolio/static/js/main.7cda84f8.js",
+    "main.js": "/portfolio/static/js/main.e1b09e5e.js",
     "static/media/food-munch-app.png": "/portfolio/static/media/food-munch-app.3e9e3277f7a3c8156b41.png",
     "static/media/nxt-watch-app.png": "/portfolio/static/media/nxt-watch-app.fc70af431e3a57688d20.png",
     "static/media/tasty-kitchens-app.png": "/portfolio/static/media/tasty-kitchens-app.3fb663f1211f922d9ef5.png",
+    "static/media/weather.png": "/portfolio/static/media/weather.77bb785c04643ed6e982.png",
     "static/media/coding.gif": "/portfolio/static/media/coding.18bcba89d4290c3f7580.gif",
     "static/media/sql-certificate.jpg": "/portfolio/static/media/sql-certificate.a7b8046ca84d645bd235.jpg",
     "static/media/react-certificate.jpg": "/portfolio/static/media/react-certificate.9eac60f90ec821e7f963.jpg",
     "static/media/js-projects.png": "/portfolio/static/media/js-projects.8a01c3cbe8b433529d55.png",
     "static/media/Agustina-Signature.otf": "/portfolio/static/media/Agustina-Signature.320d237b3c9e9e794388.otf",
     "static/media/task-checklist-app.png": "/portfolio/static/media/task-checklist-app.d3f9ce4a3723f5f1b30e.png",
-    "static/media/sqlite-logo.svg": "/portfolio/static/media/sqlite-logo.06d6a51f43352a9686e0f6451dc5b983.svg",
     "static/media/linux-logo.svg": "/portfolio/static/media/linux-logo.bc2d79b693e6c2c76990f7fde5f3f0b6.svg",
+    "static/media/mssql-logo.svg": "/portfolio/static/media/mssql-logo.f7e8fafcf677793d2eaf1a1704a90be8.svg",
     "static/media/java-logo.svg": "/portfolio/static/media/java-logo.cbc1a7f547d1c508547dfed459162d68.svg",
     "static/media/bootstrap-logo.svg": "/portfolio/static/media/bootstrap-logo.5e4ecd7f4aaf4502477e2893ac98d496.svg",
     "static/media/reactjs-logo.svg": "/portfolio/static/media/reactjs-logo.147416d211127eb9b77e0056e3116568.svg",
@@ -20,15 +21,16 @@
     "static/media/git-logo.svg": "/portfolio/static/media/git-logo.8ee81345da1c18b6cdb4bbe93b464810.svg",
     "static/media/javascript-logo.svg": "/portfolio/static/media/javascript-logo.913dffcdf18de181e0cdf106de76f721.svg",
     "static/media/github-logo.svg": "/portfolio/static/media/github-logo.0efd8f5d610235da29aaaaba2b62c22c.svg",
+    "static/media/springboot-logo.svg": "/portfolio/static/media/springboot-logo.b39d866ef15303bd4182807431613051.svg",
     "index.html": "/portfolio/index.html",
     "static/media/tailwind-logo.svg": "/portfolio/static/media/tailwind-logo.03fdecbfd26561a058e76b84d95184a7.svg",
     "static/media/css-3-logo.svg": "/portfolio/static/media/css-3-logo.315b8fdb9dbf75ae965b80bf368895cd.svg",
     "static/media/html-5-logo.svg": "/portfolio/static/media/html-5-logo.0107c93943a8f415b5db64ebb0a9d12d.svg",
     "main.9e0d865b.css.map": "/portfolio/static/css/main.9e0d865b.css.map",
-    "main.7cda84f8.js.map": "/portfolio/static/js/main.7cda84f8.js.map"
+    "main.e1b09e5e.js.map": "/portfolio/static/js/main.e1b09e5e.js.map"
   },
   "entrypoints": [
     "static/css/main.9e0d865b.css",
-    "static/js/main.7cda84f8.js"
+    "static/js/main.e1b09e5e.js"
   ]
 }

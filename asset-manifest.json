@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.9e0d865b.css",
-    "main.js": "/portfolio/static/js/main.e1b09e5e.js",
+    "main.js": "/portfolio/static/js/main.eabfb9aa.js",
     "static/media/food-munch-app.png": "/portfolio/static/media/food-munch-app.3e9e3277f7a3c8156b41.png",
     "static/media/nxt-watch-app.png": "/portfolio/static/media/nxt-watch-app.fc70af431e3a57688d20.png",
+    "static/media/weather.png": "/portfolio/static/media/weather.dd20ec74f5be9f6300ab.png",
     "static/media/tasty-kitchens-app.png": "/portfolio/static/media/tasty-kitchens-app.3fb663f1211f922d9ef5.png",
-    "static/media/weather.png": "/portfolio/static/media/weather.77bb785c04643ed6e982.png",
     "static/media/coding.gif": "/portfolio/static/media/coding.18bcba89d4290c3f7580.gif",
     "static/media/sql-certificate.jpg": "/portfolio/static/media/sql-certificate.a7b8046ca84d645bd235.jpg",
     "static/media/react-certificate.jpg": "/portfolio/static/media/react-certificate.9eac60f90ec821e7f963.jpg",
@@ -27,10 +27,10 @@
     "static/media/css-3-logo.svg": "/portfolio/static/media/css-3-logo.315b8fdb9dbf75ae965b80bf368895cd.svg",
     "static/media/html-5-logo.svg": "/portfolio/static/media/html-5-logo.0107c93943a8f415b5db64ebb0a9d12d.svg",
     "main.9e0d865b.css.map": "/portfolio/static/css/main.9e0d865b.css.map",
-    "main.e1b09e5e.js.map": "/portfolio/static/js/main.e1b09e5e.js.map"
+    "main.eabfb9aa.js.map": "/portfolio/static/js/main.eabfb9aa.js.map"
   },
   "entrypoints": [
     "static/css/main.9e0d865b.css",
-    "static/js/main.e1b09e5e.js"
+    "static/js/main.eabfb9aa.js"
   ]
 }

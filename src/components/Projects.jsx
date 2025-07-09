@@ -1,157 +1,245 @@
-import React, { useState, useEffect } from 'react'
-import { FaExternalLinkAlt } from "react-icons/fa";
-import { Tasty_Kitchens, Nxt_Watch, Task_Checklist, Food_Munch, Weather } from "../assets/images/index.js"
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaExternalLinkAlt, FaGithub, FaFilter } from "react-icons/fa";
+import { Tasty_Kitchens, Nxt_Watch, Task_Checklist, Food_Munch, Weather } from "../assets/images/index.js";
 
 function Projects() {
-  const [visible,setVisible] = useState(0);
-  const [isLargeScreen, setIsLargeScreen] = useState(false);
+  const [filter, setFilter] = useState('all');
+  const [hoveredProject, setHoveredProject] = useState(null);
+
   const projects = [
     {
       id: 1,
       image: Weather,
-      imageAlt: "Weather",
-      name: "Weather",
-      description: "This Weather App which allows users to search for a location, select it, and view real-time weather information. The weather data is fetched dynamically from the OpenWeatherMap API using the OPENWEATHER_API_KEY",
+      imageAlt: "Weather App",
+      name: "Weather App",
+      description: "Real-time weather application with location search and dynamic weather data from OpenWeatherMap API.",
+      category: "react",
       links: {
-        hosted: "https://karthikpeketi.github.io/weatherApp/"
+        hosted: "https://karthikpeketi.github.io/weatherApp/",
+        github: "#"
       },
-      tags: [
-        "HTML5", "CSS3", "JavaScript", "React JS",
-      ]
+      tags: ["React JS", "API Integration", "Responsive Design"],
+      featured: true
     },
     {
       id: 2,
       image: Tasty_Kitchens,
       imageAlt: "Tasty Kitchens",
       name: "Tasty Kitchens",
-      description: "A responsive Online Food Ordering System like Swiggy/Zomato where users can see popular restaurants with sort by rating, specific restaurant details, adding or removing food items to cart, and payments section.",
-      additionalDetails: `Login Credentials:
-        - Username: rahul
-        - Password: rahul@2021`,
+      description: "Full-featured food ordering platform with restaurant listings, cart management, and payment integration.",
+      category: "react",
       links: {
-        hosted: "https://karthiktk.ccbp.tech/"
+        hosted: "https://karthiktk.ccbp.tech/",
+        github: "#"
       },
-      tags: [
-        "HTML5", "CSS3", "Flexbox", "JavaScript", "React JS",
-      ]
+      tags: ["React JS", "Authentication", "State Management"],
+      featured: true
     },
     {
       id: 3,
       image: Food_Munch,
       imageAlt: "Food Munch",
       name: "Food Munch",
-      description: "This page highlights the details of a restaurant, including its menu, payments, follow us",
+      description: "Restaurant showcase website with modern design and responsive layout.",
+      category: "frontend",
       links: {
-        hosted: "https://foodsitekarthi.ccbp.tech/"
+        hosted: "https://foodsitekarthi.ccbp.tech/",
+        github: "#"
       },
-      tags: [
-        "HTML5", "CSS3", "JavaScript","Bootstrap"
-      ]
+      tags: ["HTML5", "CSS3", "Bootstrap", "JavaScript"]
     },
     {
       id: 4,
       image: Nxt_Watch,
       imageAlt: "Nxt Watch App",
-      name: "Nxt Watch App",
-      description: "Nxt Watch is a video streaming application similar to YouTube. The application is a Single Page Application(SPA) ",
-      additionalDetails: `Login Credentials:
-        - Username: rahul
-        - Password: rahul@2021`,
+      name: "Nxt Watch",
+      description: "YouTube-like video streaming SPA with user authentication and video management.",
+      category: "react",
       links: {
-        hosted: "https://karthiknxtwatch.ccbp.tech/"
+        hosted: "https://karthiknxtwatch.ccbp.tech/",
+        github: "#"
       },
-      tags: [
-        "HTML5", "CSS3", "Flexbox", "JavaScript", "React JS",
-      ]
+      tags: ["React JS", "SPA", "Video Streaming"],
+      featured: true
     },
     {
       id: 5,
       image: Task_Checklist,
       imageAlt: "Task Checklist App",
-      name: "Task Checklist App",
-      description: "A Task Management App where users can create, manage tasks by category, and mark them as complete..",
+      name: "Task Manager",
+      description: "Intuitive task management application with category organization and completion tracking.",
+      category: "react",
       links: {
-        hosted: "https://karthiktasks.ccbp.tech/"
+        hosted: "https://karthiktasks.ccbp.tech/",
+        github: "#"
       },
-      tags: [
-        "JavaScript", "React JS",
-      ]
-    },
-  ]
+      tags: ["React JS", "Local Storage", "Task Management"]
+    }
+  ];
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsLargeScreen(window.innerWidth >= 1024);
-    };
+  const categories = [
+    { id: 'all', label: 'All Projects', count: projects.length },
+    { id: 'react', label: 'React Apps', count: projects.filter(p => p.category === 'react').length },
+    { id: 'frontend', label: 'Frontend', count: projects.filter(p => p.category === 'frontend').length }
+  ];
 
-    window.addEventListener('resize', handleResize);
+  const filteredProjects = filter === 'all' 
+    ? projects 
+    : projects.filter(project => project.category === filter);
 
-    // Initial check
-    handleResize();
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  const handleHover = (index) => {
-    if (isLargeScreen) {
-      setVisible(index);
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6
+      }
     }
   };
 
   return (
-    <div className="pb-5 h-auto my-20" id="projects">
+    <div className="pb-5 h-auto my-32" id="projects">
+      <motion.div 
+        className="text-center mb-16"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <h1 className="text-6xl max-md:text-4xl font-bold mb-4">
+          Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Projects</span>
+        </h1>
+        <p className="text-gray-400 text-xl max-md:text-lg">Some of my recent work</p>
+      </motion.div>
 
-      <h1 className="text-6xl max-md:text-4xl font-bold mb-10">Projects</h1>
+      {/* Filter Buttons */}
+      <motion.div 
+        className="flex flex-wrap justify-center gap-4 mb-12"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        {categories.map((category) => (
+          <button
+            key={category.id}
+            onClick={() => setFilter(category.id)}
+            className={`px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2 ${
+              filter === category.id
+                ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/25'
+                : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white'
+            }`}
+          >
+            <FaFilter className="text-sm" />
+            {category.label}
+            <span className="bg-white/20 px-2 py-1 rounded-full text-xs">
+              {category.count}
+            </span>
+          </button>
+        ))}
+      </motion.div>
 
-      <div className="flex max-md:flex-wrap flex-wrap justify-between gap-y-5 gap-x-2">
-        {projects.map(cards => {
-          return (
-            <div className="max-md:w-[49%] w-[49%] max-sm:w-full h-full rounded overflow-hidden shadow-lg hover:shadow-indigo-500 border border-white relative" key={cards.id} onMouseOver={() => handleHover(cards.id)} onMouseLeave={() => setVisible(0)}>
-              <img className="w-full h-full object-contain" src={cards?.image} alt={cards?.imageAlt} />
-              <div className={`${visible === cards.id || !isLargeScreen ? 'absolute flex-col flex justify-end bg-black bg-opacity-45 inset-0 bg-gradient-to-t from-black via-transparent' : 'hidden'} max-md:from-transparent max-md:static max-md:bg-white w-full`}>
-              <div className="px-4">
-                <div className="flex items-center gap-5">
-                  <h1 className="font-bold text-xl mb-1 mt-1 text-white max-md:text-black">
-                  {cards.name}
-                  </h1>
-                  {/* <a href={cards.links.gitHub} className="font-bold text-xl mb-1 mt-1 max-md:text-black text-white cursor-pointer hover:scale-110" target="_blank" title="Github Repo" rel="noreferrer">
-                    <FaGithub /> 
-                  </a> */}
-                  <a href={cards.links.hosted} className="font-bold text-base mb-1 mt-1 max-md:text-black text-white cursor-pointer hover:scale-110" target="_blank" title="Live Preview" rel="noreferrer">
-                    <FaExternalLinkAlt /> 
-                  </a>
+      {/* Projects Grid */}
+      <motion.div 
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <AnimatePresence mode="wait">
+          {filteredProjects.map((project) => (
+            <motion.div
+              key={project.id}
+              variants={itemVariants}
+              layout
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+              className={`group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 ${
+                project.featured ? 'md:col-span-2 lg:col-span-1' : ''
+              }`}
+              onMouseEnter={() => setHoveredProject(project.id)}
+              onMouseLeave={() => setHoveredProject(null)}
+            >
+              {project.featured && (
+                <div className="absolute top-4 left-4 z-10 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  Featured
                 </div>
-                  <p className="text-gray-200 max-md:text-gray-600 text-base">
-                    {cards.description}
-                    {cards?.additionalDetails && 
-                    <>
-                      <br/>
-                      <p>{cards.additionalDetails}</p>
-                    </>
-                    }
-                  </p>
+              )}
+              
+              <div className="relative overflow-hidden">
+                <img 
+                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" 
+                  src={project.image} 
+                  alt={project.imageAlt} 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                {/* Hover Overlay */}
+                <motion.div 
+                  className="absolute inset-0 bg-black/80 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: hoveredProject === project.id ? 1 : 0 }}
+                >
+                  <a
+                    href={project.links.hosted}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="bg-white text-black p-3 rounded-full hover:bg-purple-500 hover:text-white transition-all duration-300 hover:scale-110"
+                    title="Live Demo"
+                  >
+                    <FaExternalLinkAlt />
+                  </a>
+                  <a
+                    href={project.links.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="bg-white text-black p-3 rounded-full hover:bg-purple-500 hover:text-white transition-all duration-300 hover:scale-110"
+                    title="Source Code"
+                  >
+                    <FaGithub />
+                  </a>
+                </motion.div>
               </div>
 
-              <div className="px-4 pt-4 pb-2">
-                {
-                 cards.tags.map((element,index) => {
-                  return (
-                  <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" key={index}>{element}</span>
-                  )
-                 })
-                }
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-300">
+                  {project.name}
+                </h3>
+                <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+                  {project.description}
+                </p>
+                
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-medium border border-purple-500/30"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-
-            </div>
-          )
-        })}
-      </div>
-
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
     </div>
-  )
+  );
 }
 
 export default Projects;

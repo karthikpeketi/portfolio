@@ -73,7 +73,7 @@ function Navbar({ sendDataToParent }) {
           >
             <a href="/" onClick={() => handleLinkClick('about')}>
               <h1 className="text-2xl max-md:text-xl font-bold signature text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-                &lt;Karthik Reddy /&gt;
+                Karthik Reddy
               </h1>
             </a>
           </motion.div>

@@ -1,18 +1,20 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.9e0d865b.css",
-    "main.js": "/portfolio/static/js/main.eabfb9aa.js",
+    "main.css": "/portfolio/static/css/main.f36a60e3.css",
+    "main.js": "/portfolio/static/js/main.a2d47c4d.js",
     "static/media/food-munch-app.png": "/portfolio/static/media/food-munch-app.3e9e3277f7a3c8156b41.png",
     "static/media/nxt-watch-app.png": "/portfolio/static/media/nxt-watch-app.fc70af431e3a57688d20.png",
     "static/media/weather.png": "/portfolio/static/media/weather.dd20ec74f5be9f6300ab.png",
     "static/media/tasty-kitchens-app.png": "/portfolio/static/media/tasty-kitchens-app.3fb663f1211f922d9ef5.png",
     "static/media/coding.gif": "/portfolio/static/media/coding.18bcba89d4290c3f7580.gif",
+    "static/media/res-certificate.jpg": "/portfolio/static/media/res-certificate.ed30721c3e64e97aee21.jpg",
     "static/media/sql-certificate.jpg": "/portfolio/static/media/sql-certificate.a7b8046ca84d645bd235.jpg",
+    "static/media/javascript-certificate.jpg": "/portfolio/static/media/javascript-certificate.40ee550d5608a3474e2e.jpg",
     "static/media/react-certificate.jpg": "/portfolio/static/media/react-certificate.9eac60f90ec821e7f963.jpg",
-    "static/media/js-projects.png": "/portfolio/static/media/js-projects.8a01c3cbe8b433529d55.png",
     "static/media/Agustina-Signature.otf": "/portfolio/static/media/Agustina-Signature.320d237b3c9e9e794388.otf",
+    "static/media/inventory360.png": "/portfolio/static/media/inventory360.b45e21f1af24a6c6d0ca.png",
     "static/media/task-checklist-app.png": "/portfolio/static/media/task-checklist-app.d3f9ce4a3723f5f1b30e.png",
-    "static/media/linux-logo.svg": "/portfolio/static/media/linux-logo.bc2d79b693e6c2c76990f7fde5f3f0b6.svg",
+    "static/media/postman.svg": "/portfolio/static/media/postman.c74cd48d00339ba03ff2e6ed3f9d0c4d.svg",
     "static/media/mssql-logo.svg": "/portfolio/static/media/mssql-logo.f7e8fafcf677793d2eaf1a1704a90be8.svg",
     "static/media/java-logo.svg": "/portfolio/static/media/java-logo.cbc1a7f547d1c508547dfed459162d68.svg",
     "static/media/bootstrap-logo.svg": "/portfolio/static/media/bootstrap-logo.5e4ecd7f4aaf4502477e2893ac98d496.svg",
@@ -26,11 +28,11 @@
     "static/media/tailwind-logo.svg": "/portfolio/static/media/tailwind-logo.03fdecbfd26561a058e76b84d95184a7.svg",
     "static/media/css-3-logo.svg": "/portfolio/static/media/css-3-logo.315b8fdb9dbf75ae965b80bf368895cd.svg",
     "static/media/html-5-logo.svg": "/portfolio/static/media/html-5-logo.0107c93943a8f415b5db64ebb0a9d12d.svg",
-    "main.9e0d865b.css.map": "/portfolio/static/css/main.9e0d865b.css.map",
-    "main.eabfb9aa.js.map": "/portfolio/static/js/main.eabfb9aa.js.map"
+    "main.f36a60e3.css.map": "/portfolio/static/css/main.f36a60e3.css.map",
+    "main.a2d47c4d.js.map": "/portfolio/static/js/main.a2d47c4d.js.map"
   },
   "entrypoints": [
-    "static/css/main.9e0d865b.css",
-    "static/js/main.eabfb9aa.js"
+    "static/css/main.f36a60e3.css",
+    "static/js/main.a2d47c4d.js"
   ]
 }

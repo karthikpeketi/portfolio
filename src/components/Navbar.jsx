@@ -7,15 +7,21 @@ import { IoMdMenu, IoMdClose } from "react-icons/io";
 function Navbar({ sendDataToParent }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('about');
+  const [activeSection, setActiveSection] = useState("about");
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-      
+
       // Update active section based on scroll position
-      const sections = ['about', 'skills', 'projects', 'certificates', 'contact'];
-      const current = sections.find(section => {
+      const sections = [
+        "about",
+        "skills",
+        "projects",
+        "certificates",
+        "contact",
+      ];
+      const current = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
@@ -23,20 +29,28 @@ function Navbar({ sendDataToParent }) {
         }
         return false;
       });
-      
+
       if (current) {
         setActiveSection(current);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleLinkClick = (section) => {
     setMenuOpen(false);
     sendDataToParent(false);
     setActiveSection(section);
+
+    // Scroll after a small delay (e.g., 100ms)
+    setTimeout(() => {
+      const el = document.getElementById(section);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
   };
 
   const handleMenu = () => {
@@ -50,29 +64,26 @@ function Navbar({ sendDataToParent }) {
     { href: "#skills", label: "Skills", id: "skills" },
     { href: "#projects", label: "Projects", id: "projects" },
     { href: "#certificates", label: "Certificates", id: "certificates" },
-    { href: "#contact", label: "Contact", id: "contact" }
+    { href: "#contact", label: "Contact", id: "contact" },
   ];
 
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-800' 
-          : 'bg-transparent'
+        scrolled
+          ? "bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-800"
+          : "bg-transparent"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl max-h-[60px] md:max-h-[80px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <a href="/" onClick={() => handleLinkClick('about')}>
-              <h1 className="text-2xl max-md:text-xl font-bold signature text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <a href="/" onClick={() => handleLinkClick("about")}>
+              <h1 className="text-2xl max-md:text-xl font-bold signature text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500">
                 Karthik Reddy
               </h1>
             </a>
@@ -86,8 +97,8 @@ function Navbar({ sendDataToParent }) {
                 href={item.href}
                 className={`relative px-3 py-2 text-sm font-medium transition-colors duration-300 ${
                   activeSection === item.id
-                    ? 'text-white'
-                    : 'text-gray-400 hover:text-white'
+                    ? "text-white"
+                    : "text-gray-400 hover:text-white"
                 }`}
                 onClick={() => handleLinkClick(item.id)}
                 whileHover={{ y: -2 }}
@@ -98,7 +109,7 @@ function Navbar({ sendDataToParent }) {
                 {item.label}
                 {activeSection === item.id && (
                   <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-sky-400 to-indigo-500"
                     layoutId="activeTab"
                     initial={false}
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
@@ -144,9 +155,9 @@ function Navbar({ sendDataToParent }) {
 
         {/* Mobile Navigation */}
         <motion.div
-          className={`md:hidden overflow-hidden ${menuOpen ? 'max-h-96' : 'max-h-0'}`}
-          initial={false}
-          animate={{ height: menuOpen ? 'auto' : 0 }}
+          className="md:hidden origin-top overflow-hidden"
+          initial={{ scaleY: 0 }}
+          animate={{ scaleY: menuOpen ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         >
           <div className="py-4 space-y-2 border-t border-gray-800">
@@ -156,18 +167,18 @@ function Navbar({ sendDataToParent }) {
                 href={item.href}
                 className={`block px-4 py-3 text-base font-medium rounded-lg transition-all duration-300 ${
                   activeSection === item.id
-                    ? 'text-white bg-purple-500/20 border-l-4 border-purple-500'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-800'
+                    ? "text-white bg-sky-500/20 border-l-4 border-sky-500"
+                    : "text-gray-400 hover:text-white hover:bg-gray-800"
                 }`}
                 onClick={() => handleLinkClick(item.id)}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.05 }}
               >
                 {item.label}
               </motion.a>
             ))}
-            
+
             {/* Mobile Social Links */}
             <div className="flex justify-center space-x-6 pt-4 border-t border-gray-800">
               <a

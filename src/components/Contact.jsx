@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaPhone, FaEnvelope, FaMapMarkerAlt, FaPaperPlane } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaPaperPlane } from "react-icons/fa";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -21,18 +21,50 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
+
+    // Use Web3Forms to send the email without a backend
+    // Get your access key from https://web3forms.com and set it as REACT_APP_WEB3FORMS_ACCESS_KEY
+    const accessKey = process.env.REACT_APP_WEB3FORMS_ACCESS_KEY;
+
+    const payload = {
+      access_key: accessKey,
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      from_name: formData.name
+    };
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        alert('Message sent successfully!');
+      } else {
+        console.error('Web3Forms error:', data);
+        alert('Failed to send message. Please try again later.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('An unexpected error occurred. Please try again.');
+    } finally {
       setIsSubmitting(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      alert('Message sent successfully!');
-    }, 2000);
+    }
   };
 
   const contactInfo = [
     {
-      icon: FaPhone,
+      icon: FaPhoneAlt,
       label: "Phone",
       value: "+91-7993913174",
       href: "tel:+917993913174"
@@ -46,8 +78,8 @@ function Contact() {
     {
       icon: FaMapMarkerAlt,
       label: "Location",
-      value: "Hyderabad, India",
-      href: "#"
+      value: "Vijayawada, Andhra Pradesh, India",
+      href: ""
     }
   ];
 
@@ -67,7 +99,7 @@ function Contact() {
   ];
 
   return (
-    <div className="py-20" id="contact">
+    <div className="my-16 md:my-20 lg:my-24" id="contact">
       <motion.div 
         className="text-center mb-16"
         initial={{ opacity: 0, y: 30 }}
@@ -76,7 +108,7 @@ function Contact() {
         viewport={{ once: true }}
       >
         <h1 className="text-6xl max-md:text-4xl font-bold mb-4">
-          Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Touch</span>
+          Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500">Touch</span>
         </h1>
         <p className="text-gray-400 text-xl max-md:text-lg">Let's discuss your next project</p>
       </motion.div>
@@ -104,7 +136,7 @@ function Contact() {
                   className="flex items-center gap-4 p-4 rounded-xl bg-gray-700/30 hover:bg-gray-700/50 transition-all duration-300 group"
                   whileHover={{ x: 10 }}
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-r from-sky-400 to-indigo-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <info.icon className="text-white text-lg" />
                   </div>
                   <div>
@@ -157,7 +189,7 @@ function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 transition-all duration-300"
                   placeholder="John Doe"
                 />
               </div>
@@ -172,7 +204,7 @@ function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 transition-all duration-300"
                   placeholder="john@example.com"
                 />
               </div>
@@ -188,7 +220,7 @@ function Contact() {
                 value={formData.subject}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
+                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 transition-all duration-300"
                 placeholder="Project Discussion"
               />
             </div>
@@ -203,7 +235,7 @@ function Contact() {
                 onChange={handleChange}
                 required
                 rows="5"
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 resize-none"
+                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 transition-all duration-300 resize-none"
                 placeholder="Tell me about your project..."
               />
             </div>
@@ -211,7 +243,7 @@ function Contact() {
             <motion.button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold py-4 px-8 rounded-xl hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-sky-400 to-indigo-500 text-white font-semibold py-4 px-8 rounded-xl hover:shadow-lg hover:shadow-sky-500/25 transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

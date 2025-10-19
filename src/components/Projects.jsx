@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaExternalLinkAlt, FaGithub, FaFilter } from "react-icons/fa";
-import { Tasty_Kitchens, Nxt_Watch, Task_Checklist, Food_Munch, Weather } from "../assets/images/index.js";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import { Tasty_Kitchens, Nxt_Watch, Task_Checklist, Inventory360, Weather } from "../assets/images/index.js";
 
 function Projects() {
   const [filter, setFilter] = useState('all');
@@ -10,6 +10,20 @@ function Projects() {
   const projects = [
     {
       id: 1,
+      image: Inventory360,
+      imageAlt: "Invetory360",
+      name: "Invetory360",
+      description: "Developed a full-stack inventory management system using Spring Boot, React.js, and MySQL with JWT authentication, role-based access, and email OTP verification. Integrated RESTful APIs, XLSX export, and real-time dashboards using Recharts and Framer Motion for smooth data visualization and user experience." ,
+      category: "fullstack",
+      links: {
+        hosted: "https://inventory-frontend-kappa-ten.vercel.app/login",
+        github: "https://github.com/karthikpeketi/inventory-mangement"
+      },
+      tags: ["React JS", "Spring Boot", "MySQL", "Framer motion","Role Based Login", "RESTful APIs"],
+      featured: true
+    },
+    {
+      id: 2,
       image: Weather,
       imageAlt: "Weather App",
       name: "Weather App",
@@ -17,13 +31,13 @@ function Projects() {
       category: "react",
       links: {
         hosted: "https://karthikpeketi.github.io/weatherApp/",
-        github: "#"
+        github: "https://github.com/karthikpeketi/weatherApp"
       },
       tags: ["React JS", "API Integration", "Responsive Design"],
-      featured: true
+      featured: false
     },
     {
-      id: 2,
+      id: 3,
       image: Tasty_Kitchens,
       imageAlt: "Tasty Kitchens",
       name: "Tasty Kitchens",
@@ -34,20 +48,7 @@ function Projects() {
         github: "#"
       },
       tags: ["React JS", "Authentication", "State Management"],
-      featured: true
-    },
-    {
-      id: 3,
-      image: Food_Munch,
-      imageAlt: "Food Munch",
-      name: "Food Munch",
-      description: "Restaurant showcase website with modern design and responsive layout.",
-      category: "frontend",
-      links: {
-        hosted: "https://foodsitekarthi.ccbp.tech/",
-        github: "#"
-      },
-      tags: ["HTML5", "CSS3", "Bootstrap", "JavaScript"]
+      featured: false
     },
     {
       id: 4,
@@ -61,7 +62,7 @@ function Projects() {
         github: "#"
       },
       tags: ["React JS", "SPA", "Video Streaming"],
-      featured: true
+      featured: false
     },
     {
       id: 5,
@@ -80,8 +81,8 @@ function Projects() {
 
   const categories = [
     { id: 'all', label: 'All Projects', count: projects.length },
-    { id: 'react', label: 'React Apps', count: projects.filter(p => p.category === 'react').length },
-    { id: 'frontend', label: 'Frontend', count: projects.filter(p => p.category === 'frontend').length }
+    { id: 'react', label: 'React Applications', count: projects.filter(p => p.category === 'react').length },
+    { id: 'fullstack', label: 'Full-Stack-Applications', count: projects.filter(p => p.category === 'fullstack').length }
   ];
 
   const filteredProjects = filter === 'all' 
@@ -110,7 +111,7 @@ function Projects() {
   };
 
   return (
-    <div className="pb-5 h-auto my-32" id="projects">
+    <div className="pb-5 h-auto my-16 md:my-20 lg:my-24" id="projects">
       <motion.div 
         className="text-center mb-16"
         initial={{ opacity: 0, y: 30 }}
@@ -119,7 +120,7 @@ function Projects() {
         viewport={{ once: true }}
       >
         <h1 className="text-6xl max-md:text-4xl font-bold mb-4">
-          Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Projects</span>
+          Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500">Projects</span>
         </h1>
         <p className="text-gray-400 text-xl max-md:text-lg">Some of my recent work</p>
       </motion.div>
@@ -138,11 +139,10 @@ function Projects() {
             onClick={() => setFilter(category.id)}
             className={`px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2 ${
               filter === category.id
-                ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/25'
+                ? 'bg-gradient-to-r from-sky-400 to-indigo-500 text-white shadow-lg shadow-sky-500/20'
                 : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white'
             }`}
           >
-            <FaFilter className="text-sm" />
             {category.label}
             <span className="bg-white/20 px-2 py-1 rounded-full text-xs">
               {category.count}
@@ -168,14 +168,15 @@ function Projects() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
-              className={`group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 ${
+              whileHover={{ y: -6 }}
+              className={`cursor-pointer group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 hover:border-transparent shadow-lg hover:shadow-2xl transition-all duration-300 ${
                 project.featured ? 'md:col-span-2 lg:col-span-1' : ''
               }`}
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
             >
               {project.featured && (
-                <div className="absolute top-4 left-4 z-10 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                <div className="absolute top-4 left-4 z-10 bg-gradient-to-r from-sky-400 to-indigo-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                   Featured
                 </div>
               )}
@@ -186,11 +187,9 @@ function Projects() {
                   src={project.image} 
                   alt={project.imageAlt} 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
                 {/* Hover Overlay */}
                 <motion.div 
-                  className="absolute inset-0 bg-black/80 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute inset-0 bg-black/80 flex items-center justify-center gap-4 duration-300"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: hoveredProject === project.id ? 1 : 0 }}
                 >
@@ -198,7 +197,7 @@ function Projects() {
                     href={project.links.hosted}
                     target="_blank"
                     rel="noreferrer"
-                    className="bg-white text-black p-3 rounded-full hover:bg-purple-500 hover:text-white transition-all duration-300 hover:scale-110"
+                    className="bg-white text-black p-3 rounded-full hover:bg-sky-500/50 hover:text-white transition-all duration-300 hover:scale-110"
                     title="Live Demo"
                   >
                     <FaExternalLinkAlt />
@@ -207,7 +206,7 @@ function Projects() {
                     href={project.links.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="bg-white text-black p-3 rounded-full hover:bg-purple-500 hover:text-white transition-all duration-300 hover:scale-110"
+                    className="bg-white text-black p-3 rounded-full hover:bg-sky-500/50 hover:text-white transition-all duration-300 hover:scale-110"
                     title="Source Code"
                   >
                     <FaGithub />
@@ -216,7 +215,7 @@ function Projects() {
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-300">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-white transition-colors duration-300">
                   {project.name}
                 </h3>
                 <p className="text-gray-400 text-sm mb-4 line-clamp-2">
@@ -227,7 +226,7 @@ function Projects() {
                   {project.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-medium border border-purple-500/30"
+                      className="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-xs font-medium border border-sky-500/30"
                     >
                       {tag}
                     </span>

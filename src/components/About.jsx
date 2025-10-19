@@ -13,7 +13,7 @@ function About() {
             experience with various programming languages and specifically web
             technologies.
           </p>
-          <a href="#contact" className="p-2 px-4 rounded-md text-base bg-white text-purple-500 hover:bg-purple-500 hover:text-white transition-all inline-block w-auto">GET IN TOUCH</a>
+          <a href="#contact" className="p-2 px-4 rounded-md text-base bg-white text-indigo-500 hover:bg-indigo-500 hover:text-white transition-all inline-block w-auto">GET IN TOUCH</a>
         </div>
         <img
           className="h-80 max-xl:h-64 rounded max-[426px]:h-auto max-[426px]:w-full max-[426px]:mb-5"

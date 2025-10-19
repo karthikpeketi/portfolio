@@ -16,7 +16,7 @@ function App() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 1200);
   }, []);
 
   const toggleVisible = () => {
@@ -34,7 +34,7 @@ function App() {
   window.addEventListener("scroll", toggleVisible);
 
   return (
-    <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white min-h-screen">
+    <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white min-h-screen overflow-x-hidden">
       <Navbar sendDataToParent={handleDataFromChild} />
       {loading ? (
         <Loader />
@@ -43,7 +43,7 @@ function App() {
           <div className="max-md:px-4 max-xl:px-10 px-44">
             <button
               title="GO TO TOP"
-              className={`rounded-full p-4 text-xl text-white bg-gradient-to-r from-purple-500 to-pink-500 fixed right-10 bottom-10 shadow-lg z-30 shadow-purple-900/50 hover:shadow-purple-500/50 transition-all duration-300 hover:scale-110 ${
+              className={`rounded-full p-4 text-xl text-white bg-gradient-to-r from-sky-400 to-indigo-500 fixed right-10 bottom-10 shadow-lg z-30 shadow-sky-900/50 hover:shadow-sky-500/50 transition-all duration-300 hover:scale-110 ${
                 visible ? "block" : "hidden"
               }`}
               onClick={scrollToTop}

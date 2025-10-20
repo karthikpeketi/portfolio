@@ -44,13 +44,12 @@ function Navbar({ sendDataToParent }) {
     sendDataToParent(false);
     setActiveSection(section);
 
-    // Scroll after a small delay (e.g., 100ms)
-    setTimeout(() => {
-      const el = document.getElementById(section);
-      if (el) {
+    const el = document.getElementById(section);
+    if (el) {
+      setTimeout(() => {
         el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }, 100);
+      }, 100); // Add a small delay
+    }
   };
 
   const handleMenu = () => {
@@ -83,7 +82,7 @@ function Navbar({ sendDataToParent }) {
           {/* Logo */}
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <a href="/" onClick={() => handleLinkClick("about")}>
-              <h1 className="text-2xl max-md:text-xl font-bold signature text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500">
+              <h1 className="text-lg lg:text-2xl font-bold signature text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500">
                 Karthik Reddy
               </h1>
             </a>
@@ -95,7 +94,7 @@ function Navbar({ sendDataToParent }) {
               <motion.a
                 key={item.id}
                 href={item.href}
-                className={`relative px-3 py-2 text-sm font-medium transition-colors duration-300 ${
+                className={`relative px-3 py-2 text-sm md:text-base lg:text-lg font-medium transition-colors duration-300 ${
                   activeSection === item.id
                     ? "text-white"
                     : "text-gray-400 hover:text-white"

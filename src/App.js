@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { Navbar, Loader, Footer, Hero, Skills, Projects, Contact, Certificates, Experience } from "./components/index.js";
+import {
+  Navbar,
+  Loader,
+  Footer,
+  Hero,
+  Skills,
+  Projects,
+  Contact,
+  Certificates,
+  Experience,
+} from "./components/index.js";
 import { GoArrowUp } from "react-icons/go";
 
 function App() {
@@ -34,13 +44,16 @@ function App() {
   window.addEventListener("scroll", toggleVisible);
 
   return (
-    <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white min-h-screen overflow-x-hidden">
+    <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white min-h-[100dvh] md:min-h-screen overflow-x-hidden">
       <Navbar sendDataToParent={handleDataFromChild} />
       {loading ? (
         <Loader />
       ) : (
         !menuOpen && (
-          <div className="max-md:px-4 max-xl:px-10 px-44">
+          <div
+            className="max-md:px-4 max-xl:px-10 px-44 [height:calc(100%-60px)]
+  md:[height:calc(100%-80px)]"
+          >
             <button
               title="GO TO TOP"
               className={`rounded-full p-4 text-xl text-white bg-gradient-to-r from-sky-400 to-indigo-500 fixed right-10 bottom-10 shadow-lg z-30 shadow-sky-900/50 hover:shadow-sky-500/50 transition-all duration-300 hover:scale-110 ${

@@ -5,7 +5,7 @@ import coding_gif from "../assets/images/coding.gif";
 
 function Hero() {
   return (
-    <div className="mx-auto h-screen flex items-center justify-center pt-20" id="about">
+    <div className="mx-auto flex items-center justify-center pt-36 md:pt-40 lg:pt-52" id="about">
       <div className="flex gap-6 justify-between items-center max-md:flex-wrap max-xl:justify-center">
         <motion.div 
           className="w-1/2 max-xl:w-full text-left max-md:text-center"

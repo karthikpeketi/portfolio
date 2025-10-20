@@ -154,7 +154,7 @@ function Certifications({ items = defaultCerts }) {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h1 className="text-6xl max-md:text-4xl font-bold mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">
           Professional{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500">
             Certificates

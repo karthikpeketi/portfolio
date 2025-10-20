@@ -36,16 +36,6 @@ function Experience() {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
-  };
-
   const itemVariants = {
     hidden: { x: -50, opacity: 0 },
     visible: {
@@ -66,7 +56,7 @@ function Experience() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h1 className="text-6xl max-md:text-4xl font-bold mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">
           Work{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500">
             Experience
@@ -82,7 +72,7 @@ function Experience() {
       >
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sky-400 to-indigo-500"></div>
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sky-400 to-indigo-500 max-md:hidden"></div>
 
           {experiences.map((exp) => (
             <motion.div
@@ -91,24 +81,24 @@ function Experience() {
               className="relative flex items-start mb-12 last:mb-0"
             >
               {/* Timeline Dot */}
-              <div className="absolute left-8 -translate-x-1/2 top-1 w-4 h-4 bg-gradient-to-r from-sky-400 to-indigo-500 rounded-full border-4 border-sky-900 shadow-lg z-10"></div>
+              <div className="absolute left-8 -translate-x-1/2 top-1 w-4 h-4 bg-gradient-to-r from-sky-400 to-indigo-500 rounded-full border-4 border-sky-900 shadow-lg z-10 max-md:hidden"></div>
 
               {/* Content */}
               <motion.div
                 whileHover={{ y: -6 }}
-                className="ml-20 bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-transparent shadow-lg hover:shadow-2xl transition-all duration-300 w-full cursor-pointer"
+                className="ml-0 md:ml-20 bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-transparent shadow-lg hover:shadow-2xl transition-all duration-300 w-full cursor-pointer"
               >
                 <div className="flex flex-wrap items-start justify-between mb-4">
                   <div>
                     <h3 className="text-2xl font-bold text-gray-300 mb-2">
                       {exp.title}
                     </h3>
-                    <div className="flex items-center gap-4 text-gray-400 mb-2">
-                      <div className="flex items-baseline gap-2">
+                    <div className="flex items-center flex-wrap gap-4 text-gray-400 mb-2">
+                      <div className="flex items-center md:items-baseline gap-2">
                         <FaBriefcase className="text-sm" />
                         <span className="font-medium">{exp.company}</span>
                       </div>
-                      <div className="flex items-baseline gap-2">
+                      <div className="flex items-center md:items-baseline gap-2">
                         <FaMapMarkerAlt className="text-sm" />
                         <span>{exp.location}</span>
                       </div>
@@ -128,8 +118,8 @@ function Experience() {
 
                 <ul className="text-gray-300 mb-6 space-y-2">
                   {exp.description.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <span className="text-sky-400 mt-2">•</span>
+                    <li key={idx} className="flex items-baseline gap-3">
+                      <span className="text-sky-500 font-bold text-xl md:text-2xl mt-2">•</span>
                       <span>{item}</span>
                     </li>
                   ))}

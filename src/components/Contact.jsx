@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaPaperPlane } from "react-icons/fa";
+import Toast from "./Toast";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,15 @@ function Contact() {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [toast, setToast] = useState({ message: '', type: '', visible: false });
+
+  const showToast = (message, type) => {
+    setToast({ message, type, visible: true });
+  };
+
+  const hideToast = () => {
+    setToast({ ...toast, visible: false });
+  };
 
   const handleChange = (e) => {
     setFormData({
@@ -49,14 +59,14 @@ function Contact() {
 
       if (data.success) {
         setFormData({ name: '', email: '', subject: '', message: '' });
-        alert('Message sent successfully!');
+        showToast('Message sent successfully!', 'success');
       } else {
         console.error('Web3Forms error:', data);
-        alert('Failed to send message. Please try again later.');
+        showToast('Failed to send message. Please try again later.', 'error');
       }
     } catch (error) {
       console.error('Submission error:', error);
-      alert('An unexpected error occurred. Please try again.');
+      showToast('An unexpected error occurred. Please try again.', 'error');
     } finally {
       setIsSubmitting(false);
     }
@@ -88,13 +98,13 @@ function Contact() {
       icon: FaGithub,
       label: "GitHub",
       href: "https://github.com/karthikpeketi",
-      color: "hover:text-gray-400"
+      color: "hover:text-[#ffffff]"
     },
     {
       icon: FaLinkedin,
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/karthik-peketi/",
-      color: "hover:text-blue-400"
+      color: "hover:text-[#0073b0]"
     }
   ];
 
@@ -107,7 +117,7 @@ function Contact() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h1 className="text-6xl max-md:text-4xl font-bold mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">
           Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500">Touch</span>
         </h1>
         <p className="text-gray-400 text-xl max-md:text-lg">Let's discuss your next project</p>
@@ -120,6 +130,7 @@ function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
+          className="w-full overflow-x-hidden"
         >
           <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 h-full">
             <h2 className="text-3xl font-bold mb-8 text-white">Let's Connect</h2>
@@ -136,12 +147,12 @@ function Contact() {
                   className="flex items-center gap-4 p-4 rounded-xl bg-gray-700/30 hover:bg-gray-700/50 transition-all duration-300 group"
                   whileHover={{ x: 10 }}
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-sky-400 to-indigo-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-r from-sky-400 to-indigo-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                     <info.icon className="text-white text-lg" />
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">{info.label}</p>
-                    <p className="text-white font-medium">{info.value}</p>
+                </div>
+                  <div className="flex flex-col min-w-0 break-words">
+                    <span className="text-gray-400 text-sm">{info.label}</span>
+                    <span className="text-white font-medium">{info.value}</span>
                   </div>
                 </motion.a>
               ))}
@@ -262,6 +273,13 @@ function Contact() {
           </form>
         </motion.div>
       </div>
+      {toast.visible && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={hideToast}
+        />
+      )}
     </div>
   );
 }

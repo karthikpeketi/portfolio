@@ -5,7 +5,6 @@ import Bootstrap_Logo from "./bootstrap-logo.svg";
 import React_Logo from "./reactjs-logo.svg";
 import Git_Logo from "./git-logo.svg";
 import Github_Logo from "./github-logo.svg";
-import VSCode_Logo from "./vs-code-logo.svg";
 import Tasty_Kitchens from "./tasty-kitchens-app.png";
 import Nxt_Watch from "./nxt-watch-app.png";
 import Task_Checklist from "./task-checklist-app.png";
@@ -30,7 +29,6 @@ export {
   React_Logo,
   Git_Logo,
   Github_Logo,
-  VSCode_Logo,
   Tailwind_Logo,
   Tasty_Kitchens,
   Nxt_Watch,

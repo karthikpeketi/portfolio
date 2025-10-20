@@ -81,7 +81,7 @@ function Navbar({ sendDataToParent }) {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <a href="/" onClick={() => handleLinkClick("about")}>
+            <a href="/portfolio" onClick={() => handleLinkClick("about")}>
               <h1 className="text-lg lg:text-2xl font-bold signature text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500">
                 Karthik Reddy
               </h1>

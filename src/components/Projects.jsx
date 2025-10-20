@@ -61,7 +61,7 @@ function Projects() {
       category: "react",
       links: {
         hosted: "https://karthiktk.ccbp.tech/",
-        github: "#",
+        github: "https://github.com/karthikpeketi",
       },
       tags: ["React JS", "Authentication", "State Management"],
       featured: false,
@@ -76,7 +76,7 @@ function Projects() {
       category: "react",
       links: {
         hosted: "https://karthiknxtwatch.ccbp.tech/",
-        github: "#",
+        github: "https://github.com/karthikpeketi/",
       },
       tags: ["React JS", "SPA", "Video Streaming"],
       featured: false,
@@ -91,7 +91,7 @@ function Projects() {
       category: "react",
       links: {
         hosted: "https://karthiktasks.ccbp.tech/",
-        github: "#",
+        github: "https://github.com/karthikpeketi/",
       },
       tags: ["React JS", "Local Storage", "Task Management"],
     },

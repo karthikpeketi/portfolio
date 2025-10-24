@@ -105,7 +105,7 @@ function Experience() {
                     </div>
                   </div>
 
-                  <div className="flex flex-col items-end">
+                  <div className="flex flex-col items-start md:items-end">
                     <div className="flex items-baseline gap-2 text-gray-400 mb-2">
                       <FaCalendarAlt className="text-sm" />
                       <span>{exp.duration}</span>
@@ -118,8 +118,8 @@ function Experience() {
 
                 <ul className="text-gray-300 mb-6 space-y-2">
                   {exp.description.map((item, idx) => (
-                    <li key={idx} className="flex items-baseline gap-3">
-                      <span className="text-sky-500 font-bold text-xl md:text-2xl mt-2">•</span>
+                    <li key={idx} className="flex items-start gap-3">
+                      <span className="text-sky-500 font-bold text-xl md:text-2xl leading-none">•</span>
                       <span>{item}</span>
                     </li>
                   ))}

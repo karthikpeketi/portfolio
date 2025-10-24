@@ -229,14 +229,14 @@ function Projects() {
 
               <div className="p-6">
                 <div className="flex flex-row gap-2 items-center mb-2">
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-white transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-white group-hover:text-white transition-colors duration-300">
                     {project.name}
                   </h3>
                   <a
                     href={project.links.hosted}
                     target="_blank"
                     rel="noreferrer"
-                    className="bg-transparent p-3 rounded-full transition-all duration-300 hover:scale-110"
+                    className="bg-gray-700 p-3 rounded-full transition-all duration-300 hover:scale-110 hover:bg-gray-600"
                     title="Live Demo"
                   >
                     <FaExternalLinkAlt />
@@ -245,7 +245,7 @@ function Projects() {
                     href={project.links.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="bg-transparent p-3 rounded-full transition-all duration-300 hover:scale-110"
+                    className="bg-gray-700 p-3 rounded-full transition-all duration-300 hover:scale-110 hover:bg-gray-600"
                     title="Source Code"
                   >
                     <FaGithub />

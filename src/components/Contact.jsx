@@ -158,7 +158,7 @@ function Contact() {
               ))}
             </div>
 
-            <div className="border-t border-gray-700 pt-8">
+            <div className="border-t border-gray-700 pt-8 hidden md:block">
               <h3 className="text-xl font-semibold mb-4 text-white">Follow Me</h3>
               <div className="flex gap-4">
                 {socialLinks.map((social, index) => (

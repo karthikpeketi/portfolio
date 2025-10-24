@@ -8,7 +8,7 @@ function Loader() {
         visible={true}
         height="150"
         width="150"
-        color="#00B2DF"
+        color="#38bdf8 "
         ariaLabel="triangle-loading"
         wrapperStyle={{}}
         wrapperClass=""

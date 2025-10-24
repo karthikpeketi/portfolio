@@ -3,43 +3,60 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: Agustina;
-    src: url("./assets/fonts/Agustina-Signature.otf") format("truetype");
+  font-family: Agustina;
+  src: url("./assets/fonts/Agustina-Signature.otf") format("truetype");
 }
 
-html,
+@media (min-width: 320px) {
+  .custom-skill-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 390px) {
+  .custom-skill-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+html {
+  scroll-padding-top: 6rem; /* Adjust this value based on your navbar's height */
+}
+
 body {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 .signature {
-    font-family: Agustina;
+  font-family: Agustina;
 }
 
 .active {
-    color: white;
-    border-bottom: 1px solid white;
+  color: white;
+  border-bottom: 1px solid white;
 }
 
 .deactive {
-    color: #7e9199;
-    border-bottom: none;
+  color: #7e9199;
+  border-bottom: none;
 }
 
 /* Custom Scrollbar */
 
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888;
+  background: #888;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  background: #555;
 }

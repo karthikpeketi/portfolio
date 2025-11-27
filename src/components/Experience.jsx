@@ -8,6 +8,7 @@ function Experience() {
       id: 1,
       title: "Software Engineer",
       company: "Crestere Technologies LLP",
+      companyLink: "https://www.linkedin.com/company/cresteretech/",
       location: "Pune, Maharashtra, India",
       duration: "Mar 2023 - May 2024",
       type: "Full-time",
@@ -23,6 +24,7 @@ function Experience() {
       id: 2,
       title: "Frontend Developer Intern",
       company: "Remedo",
+      companyLink: "https://www.linkedin.com/company/remedo/",
       location: "Remote",
       duration: "Aug 2025 - Present",
       type: "Internship",
@@ -96,7 +98,14 @@ function Experience() {
                     <div className="flex items-center flex-wrap gap-4 text-gray-400 mb-2">
                       <div className="flex items-center md:items-baseline gap-2">
                         <FaBriefcase className="text-sm" />
-                        <span className="font-medium">{exp.company}</span>
+                        <a
+                          href={exp.companyLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-medium text-sky-400 hover:text-sky-300 underline transition-colors"
+                        >
+                          {exp.company}
+                        </a>
                       </div>
                       <div className="flex items-center md:items-baseline gap-2">
                         <FaMapMarkerAlt className="text-sm" />

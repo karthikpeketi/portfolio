@@ -89,7 +89,7 @@ function Contact() {
       icon: FaMapMarkerAlt,
       label: "Location",
       value: "Vijayawada, Andhra Pradesh, India",
-      href: ""
+      href: "https://www.google.com/maps/search/?api=1&query=Vijayawada,Andhra+Pradesh,India"
     }
   ];
 
@@ -144,6 +144,8 @@ function Contact() {
                 <motion.a
                   key={index}
                   href={info.href}
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl bg-gray-700/30 hover:bg-gray-700/50 transition-all duration-300 group"
                   whileHover={{ x: 10 }}
                 >

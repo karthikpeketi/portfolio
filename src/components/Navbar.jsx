@@ -166,7 +166,7 @@ function Navbar({ sendDataToParent }) {
                 href={item.href}
                 className={`block px-4 py-3 text-base font-medium rounded-lg transition-all duration-300 ${
                   activeSection === item.id
-                    ? "text-white bg-sky-500/20 border-l-4 border-sky-500"
+                    ? "text-white bg-sky-500/20 border-sky-500"
                     : "text-gray-400 hover:text-white hover:bg-gray-800"
                 }`}
                 onClick={() => handleLinkClick(item.id)}

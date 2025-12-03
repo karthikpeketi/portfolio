@@ -192,82 +192,89 @@ function Projects() {
       >
         <AnimatePresence mode="wait">
           {filteredProjects.map((project) => (
-            <motion.div
+            <a
               key={project.id}
-              variants={itemVariants}
-              layout
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.3 }}
-              whileHover={{ y: -6 }}
-              className={`cursor-pointer group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 hover:border-transparent shadow-lg hover:shadow-2xl transition-all duration-300 ${
-                project.featured ? "md:col-span-2 lg:col-span-1" : ""
-              }`}
-              onMouseEnter={() => setHoveredProject(project.id)}
-              onMouseLeave={() => setHoveredProject(null)}
+              href={project.links.hosted}
+              target="_blank"
+              rel="noreferrer"
+              className={project.featured ? "md:col-span-2 lg:col-span-1" : ""}
             >
-              {project.featured && (
-                <div className="absolute top-4 left-4 z-10 bg-gradient-to-r from-sky-400 to-indigo-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                  Featured
-                </div>
-              )}
+              <motion.div
+                variants={itemVariants}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+                whileHover={{ y: -6 }}
+                className={`cursor-pointer group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 hover:border-transparent shadow-lg hover:shadow-2xl transition-all duration-300`}
+                onMouseEnter={() => setHoveredProject(project.id)}
+                onMouseLeave={() => setHoveredProject(null)}
+              >
+                {project.featured && (
+                  <div className="absolute top-4 left-4 z-10 bg-gradient-to-r from-sky-400 to-indigo-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    Featured
+                  </div>
+                )}
 
-              <div className="relative overflow-hidden">
-                <img
-                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                  src={project.image}
-                  alt={project.imageAlt}
-                />
-                {/* Hover Overlay */}
-                <motion.div
-                  className="absolute inset-0 bg-black/80 flex items-center justify-center gap-4 duration-300"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: hoveredProject === project.id ? 1 : 0 }}
-                ></motion.div>
-              </div>
-
-              <div className="p-6">
-                <div className="flex flex-row gap-2 items-center mb-2">
-                  <h3 className="text-xl font-bold text-white group-hover:text-white transition-colors duration-300">
-                    {project.name}
-                  </h3>
-                  <a
-                    href={project.links.hosted}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="bg-gray-700 p-3 rounded-full transition-all duration-300 hover:scale-110 hover:bg-gray-600"
-                    title="Live Demo"
-                  >
-                    <FaExternalLinkAlt />
-                  </a>
-                  <a
-                    href={project.links.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="bg-gray-700 p-3 rounded-full transition-all duration-300 hover:scale-110 hover:bg-gray-600"
-                    title="Source Code"
-                  >
-                    <FaGithub />
-                  </a>
+                <div className="relative overflow-hidden">
+                  <img
+                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                    src={project.image}
+                    alt={project.imageAlt}
+                  />
+                  {/* Hover Overlay */}
+                  <motion.div
+                    className="absolute inset-0 bg-black/80 flex items-center justify-center gap-4 duration-300"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: hoveredProject === project.id ? 1 : 0 }}
+                  ></motion.div>
                 </div>
 
-                <p className="text-gray-400 text-sm mb-4 line-clamp-2">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-xs font-medium border border-sky-500/30"
+                <div className="p-6">
+                  <div className="flex flex-row gap-2 items-center mb-2">
+                    <h3 className="text-xl font-bold text-white group-hover:text-white transition-colors duration-300">
+                      {project.name}
+                    </h3>
+                    <a
+                      href={project.links.hosted}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="bg-gray-700 p-3 rounded-full transition-all duration-300 hover:scale-110 hover:bg-gray-600"
+                      title="Live Demo"
+                      onClick={(e) => e.stopPropagation()}
                     >
-                      {tag}
-                    </span>
-                  ))}
+                      <FaExternalLinkAlt />
+                    </a>
+                    <a
+                      href={project.links.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="bg-gray-700 p-3 rounded-full transition-all duration-300 hover:scale-110 hover:bg-gray-600"
+                      title="Source Code"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <FaGithub />
+                    </a>
+                  </div>
+
+                  <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-xs font-medium border border-sky-500/30"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </a>
           ))}
         </AnimatePresence>
       </motion.div>

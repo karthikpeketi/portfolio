@@ -10,6 +10,7 @@ function Experience() {
       company: "Crestere Technologies LLP",
       companyLink: "https://www.linkedin.com/company/cresteretech/",
       location: "Pune, Maharashtra, India",
+      locationLink: "https://www.google.com/maps/search/?api=1&query=Pune,+Maharashtra,+India",
       duration: "Mar 2023 - May 2024",
       type: "Full-time",
       description: [
@@ -25,7 +26,8 @@ function Experience() {
       title: "Frontend Developer Intern",
       company: "Remedo",
       companyLink: "https://www.linkedin.com/company/remedo/",
-      location: "Remote",
+      location: "Fremont, CA",
+     locationLink: "https://www.google.com/maps/search/?api=1&query=Fremont,+CA",
       duration: "Aug 2025 - Present",
       type: "Internship",
       description: [
@@ -69,9 +71,7 @@ function Experience() {
         </p>
       </motion.div>
 
-      <div
-        className="max-w-4xl mx-auto"
-      >
+      <div className="max-w-4xl mx-auto">
         <div className="relative">
           {/* Timeline Line */}
           <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sky-400 to-indigo-500 max-md:hidden"></div>
@@ -96,20 +96,27 @@ function Experience() {
                       {exp.title}
                     </h3>
                     <div className="flex items-center flex-wrap gap-4 text-gray-400 mb-2">
-                      <div className="flex items-center md:items-baseline gap-2">
-                        <FaBriefcase className="text-sm" />
+                      <div className="group flex items-center md:items-baseline gap-2 cursor-pointer">
+                        <FaBriefcase className="text-sm transition-colors group-hover:text-sky-300" />
                         <a
                           href={exp.companyLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-medium text-sky-400 hover:text-sky-300 underline transition-colors"
+                          className="font-medium transition-colors group-hover:text-sky-300"
                         >
                           {exp.company}
                         </a>
                       </div>
-                      <div className="flex items-center md:items-baseline gap-2">
-                        <FaMapMarkerAlt className="text-sm" />
-                        <span>{exp.location}</span>
+                      <div className="group flex items-center md:items-baseline gap-2 cursor-pointer">
+                        <FaMapMarkerAlt className="text-sm transition-colors group-hover:text-sky-300" />
+                        <a
+                          href={exp.locationLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-medium transition-colors group-hover:text-sky-300"
+                        >
+                          {exp.location}
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -128,7 +135,9 @@ function Experience() {
                 <ul className="text-gray-300 mb-6 space-y-2">
                   {exp.description.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <span className="text-sky-500 font-bold text-xl md:text-2xl leading-none">•</span>
+                      <span className="text-sky-500 font-bold text-xl md:text-2xl leading-none">
+                        •
+                      </span>
                       <span>{item}</span>
                     </li>
                   ))}

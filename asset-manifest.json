@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.c00b3767.css",
-    "main.js": "/portfolio/static/js/main.7dfc0957.js",
+    "main.css": "/portfolio/static/css/main.ae961f78.css",
+    "main.js": "/portfolio/static/js/main.60c40991.js",
     "static/media/food-munch-app.png": "/portfolio/static/media/food-munch-app.3e9e3277f7a3c8156b41.png",
     "static/media/nxt-watch-app.png": "/portfolio/static/media/nxt-watch-app.fc70af431e3a57688d20.png",
     "static/media/weather.png": "/portfolio/static/media/weather.dd20ec74f5be9f6300ab.png",
@@ -27,11 +27,11 @@
     "static/media/tailwind-logo.svg": "/portfolio/static/media/tailwind-logo.03fdecbfd26561a058e76b84d95184a7.svg",
     "static/media/css-3-logo.svg": "/portfolio/static/media/css-3-logo.60e23942f41d4dc73de0d271b4453605.svg",
     "static/media/html-5-logo.svg": "/portfolio/static/media/html-5-logo.bfc29cc664956a7748f9ee78fa82ec7b.svg",
-    "main.c00b3767.css.map": "/portfolio/static/css/main.c00b3767.css.map",
-    "main.7dfc0957.js.map": "/portfolio/static/js/main.7dfc0957.js.map"
+    "main.ae961f78.css.map": "/portfolio/static/css/main.ae961f78.css.map",
+    "main.60c40991.js.map": "/portfolio/static/js/main.60c40991.js.map"
   },
   "entrypoints": [
-    "static/css/main.c00b3767.css",
-    "static/js/main.7dfc0957.js"
+    "static/css/main.ae961f78.css",
+    "static/js/main.60c40991.js"
   ]
 }

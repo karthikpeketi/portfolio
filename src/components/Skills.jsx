@@ -12,27 +12,28 @@ import {
   Mssql_Logo,
   Tailwind_Logo,
   Postman_Logo,
+  Nextjs_Logo,
 } from "../assets/images/index";
 
 function Skills() {
   const skillCategories = [
     {
-      title: "Frontend",
+      title: "Languages",
       items: [
+        { src: Java_Logo, alt: "Java" },
         { src: JavaScript_Logo, alt: "JavaScript" },
-        { src: React_Logo, alt: "React" },
         { src: HTML_Logo, alt: "HTML5" },
         { src: CSS_Logo, alt: "CSS3" },
-        { src: Tailwind_Logo, alt: "Tailwind CSS" },
-        { src: Bootstrap_Logo, alt: "Bootstrap" },
+        { src: Mssql_Logo, alt: "SQL" },
       ],
     },
     {
-      title: "Backend",
+      title: "Frameworks",
       items: [
-        { src: Java_Logo, alt: "Java" },
+        { src: React_Logo, alt: "React" },
+        { src: Nextjs_Logo, alt: "Next.js" },
         { src: Springboot_Logo, alt: "Spring Boot" },
-        { src: Mssql_Logo, alt: "SQL" },
+        { src: Tailwind_Logo, alt: "Tailwind CSS" }
       ],
     },
     {

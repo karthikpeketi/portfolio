@@ -17,6 +17,7 @@ function Navbar({ sendDataToParent }) {
       const sections = [
         "about",
         "skills",
+        "experience",
         "projects",
         "certificates",
         "contact",
@@ -61,6 +62,7 @@ function Navbar({ sendDataToParent }) {
   const navItems = [
     { href: "#about", label: "About", id: "about" },
     { href: "#skills", label: "Skills", id: "skills" },
+    { href: "#experience", label: "Experience", id: "experience" },
     { href: "#projects", label: "Projects", id: "projects" },
     { href: "#certificates", label: "Certificates", id: "certificates" },
     { href: "#contact", label: "Contact", id: "contact" },
@@ -68,11 +70,10 @@ function Navbar({ sendDataToParent }) {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
           ? "bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-800"
           : "bg-transparent"
-      }`}
+        }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
@@ -94,11 +95,10 @@ function Navbar({ sendDataToParent }) {
               <motion.a
                 key={item.id}
                 href={item.href}
-                className={`relative px-3 py-2 text-sm md:text-base lg:text-lg font-medium transition-colors duration-300 ${
-                  activeSection === item.id
+                className={`relative px-3 py-2 text-sm md:text-base lg:text-lg font-medium transition-colors duration-300 ${activeSection === item.id
                     ? "text-white"
                     : "text-gray-400 hover:text-white"
-                }`}
+                  }`}
                 onClick={() => handleLinkClick(item.id)}
                 whileHover={{ y: -2 }}
                 initial={{ opacity: 0, y: -20 }}
@@ -164,11 +164,10 @@ function Navbar({ sendDataToParent }) {
               <motion.a
                 key={item.id}
                 href={item.href}
-                className={`block px-4 py-3 text-base font-medium rounded-lg transition-all duration-300 ${
-                  activeSection === item.id
+                className={`block px-4 py-3 text-base font-medium rounded-lg transition-all duration-300 ${activeSection === item.id
                     ? "text-white bg-sky-500/20 border-sky-500"
                     : "text-gray-400 hover:text-white hover:bg-gray-800"
-                }`}
+                  }`}
                 onClick={() => handleLinkClick(item.id)}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}

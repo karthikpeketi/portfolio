@@ -16,6 +16,7 @@ import Mssql_Logo from './mssql-logo.svg';
 import Weather from './weather.png';
 import Inventory360 from './inventory360.png';
 import Postman_Logo from './postman.svg';
+import Nextjs_Logo from "./nextjs-logo.svg";
 
 // Certificates
 import Design_Certificate from "./react-certificate.jpg";
@@ -41,5 +42,6 @@ export {
   Mssql_Logo,
   Weather,
   Inventory360,
-  Postman_Logo
+  Postman_Logo,
+  Nextjs_Logo
 };

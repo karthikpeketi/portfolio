@@ -3,7 +3,6 @@ import {
   HTML_Logo,
   CSS_Logo,
   JavaScript_Logo,
-  Bootstrap_Logo,
   React_Logo,
   Git_Logo,
   Github_Logo,
